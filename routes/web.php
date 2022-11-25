@@ -22,6 +22,12 @@ Route::get('/', function () {
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/admindashboard', [AdminController::class, 'index']);
+Route::get('/barangay', [AdminController::class, 'barangay']);
+Route::get('/barangaylist', [AdminController::class, 'getBarangay']);
+Route::post('/insert_barangay', [AdminController::class, 'insert_barangay']);
+Route::post('/insert_barangay_admin', [AdminController::class, 'insert_barangay_admin']);
+Route::get('/barangay-admin', [AdminController::class, 'barangay_admin']);
+Route::get('/barangayadminlist', [AdminController::class, 'getBarangayAdmin']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
 
