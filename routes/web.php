@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrgyAdminController;
+use App\Http\Controllers\PurokAdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ Route::get('/', function () {
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+// admin
 Route::get('/admindashboard', [AdminController::class, 'index']);
 Route::get('/barangay', [AdminController::class, 'barangay']);
 Route::get('/barangaylist', [AdminController::class, 'getBarangay']);
@@ -31,6 +34,7 @@ Route::get('/barangay-admin', [AdminController::class, 'barangay_admin']);
 Route::get('/barangayadminlist', [AdminController::class, 'getBarangayAdmin']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
+// brgy admin
 Route::get('/brgyadmin', [BrgyAdminController::class, 'index']);
 Route::get('/purok', [BrgyAdminController::class, 'purok']);
 Route::get('/puroklist', [BrgyAdminController::class, 'getPurok']);
@@ -39,5 +43,8 @@ Route::get('/purok-admin', [BrgyAdminController::class, 'purok_admin']);
 Route::post('/insert_purok_admin', [BrgyAdminController::class, 'insert_purok_admin']);
 Route::get('/purokadminlist', [BrgyAdminController::class, 'getPurokAdmin']);
 
+// purok admin
+Route::get('/purokadmin', [PurokAdminController::class, 'index']);
+Route::get('/residence', [PurokAdminController::class, 'residence']);
 
 

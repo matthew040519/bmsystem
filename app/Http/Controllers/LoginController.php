@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use App\Models\BarangayAdminModel;
+use App\Models\PurokAdminModel;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use View;
@@ -28,6 +29,9 @@ class LoginController extends Controller
         $brgyadmin = BarangayAdminModel::where('username', $username)->first();
         $brgyadmincount = BarangayAdminModel::where('username', $username)->count();
 
+        $purokadmin = PurokAdminModel::where('username', $username)->first();
+        $purokadmincount = PurokAdminModel::where('username', $username)->count();
+
         if($admincount > 0)
         {
             if(Hash::check($password, $user->password))
@@ -49,6 +53,19 @@ class LoginController extends Controller
                     // $request->session()->put('root', $users->root);
                 // return view::make('admindashboard');
                 return redirect('brgyadmin');
+            }
+        }
+        if($purokadmincount > 0)
+        {
+            if(Hash::check($password, $purokadmin->password))
+            {
+                $request->session()->put('id', $purokadmin->id);
+                $request->session()->put('username', $purokadmin->username);
+                $request->session()->put('brgyid', $purokadmin->barangay_id);
+                $request->session()->put('purokid', $purokadmin->purok_id);
+                    // $request->session()->put('root', $users->root);
+                // return view::make('admindashboard');
+                return redirect('purokadmin');
             }
         }
     }
