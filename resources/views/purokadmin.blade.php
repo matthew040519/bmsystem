@@ -26,7 +26,7 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Barangay Name</th>
-                            <th>Barangay Address</th>
+                            <th>Purok Name</th>
                             <th>Email</th>
                             <th>Contact</th>
                           </tr>
@@ -227,7 +227,7 @@
                  var id = response['data'][i].id;
                  var username = response['data'][i].username;
                  var barangay_name = response['data'][i].barangay_name;
-                 var barangay_address = response['data'][i].barangay_address;
+                 var purok_name = response['data'][i].purok_name;
                  var email = response['data'][i].email;
                  var contact = response['data'][i].contact_number;
 
@@ -235,7 +235,7 @@
                    "<td>" + (i+1) + "</td>" +
                    "<td>" + username + "</td>" +
                    "<td>" + barangay_name + "</td>" +
-                   "<td>" + barangay_address + "</td>" +
+                   "<td>" + purok_name + "</td>" +
                    "<td>" + email + "</td>" +
                    "<td>" + contact + "</td>" +
                  "</tr>";
