@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrgyAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,14 @@ Route::post('/insert_barangay_admin', [AdminController::class, 'insert_barangay_
 Route::get('/barangay-admin', [AdminController::class, 'barangay_admin']);
 Route::get('/barangayadminlist', [AdminController::class, 'getBarangayAdmin']);
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/brgyadmin', [BrgyAdminController::class, 'index']);
+Route::get('/purok', [BrgyAdminController::class, 'purok']);
+Route::get('/puroklist', [BrgyAdminController::class, 'getPurok']);
+Route::post('/insert_purok', [BrgyAdminController::class, 'insert_purok']);
+Route::get('/purok-admin', [BrgyAdminController::class, 'purok_admin']);
+Route::post('/insert_purok_admin', [BrgyAdminController::class, 'insert_purok_admin']);
+Route::get('/purokadminlist', [BrgyAdminController::class, 'getPurokAdmin']);
+
 
 
